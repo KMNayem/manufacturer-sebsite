@@ -10,7 +10,7 @@ const Banner = () => {
             <h1 class="mb-5 text-5xl font-bold">Welcome</h1>
             <h3 class="mb-5 text-5xl font-bold">THE ProPAINT</h3>
             <p class="mb-5">The best painter maker company in the world. We offer the Best deal to you..</p>
-            <button class="btn btn-primary">Explore Now</button>
+            <button class="btn btn-secondary">Explore Now</button>
           </div>
         </div>
       </div>
