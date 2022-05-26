@@ -4,7 +4,7 @@ import { FaCheck, FaGlobeAmericas, FaPaperPlane, FaHandHoldingUsd } from "react-
 
 const BusinessSummary = () => {
     return (
-        <div className='mt-7 '>
+        <div className='mt-20 '>
             <h1 className='text-center text-4xl font-bold text-primary'>What We Provide ?</h1>
             <p className='text-center font-semibold text-purple-500'>This is how we can help you as our product. Let's SEE... </p>
 
@@ -41,7 +41,7 @@ const BusinessSummary = () => {
             </div>
         </div>
       </div>
-      <div className='mt-5 lg:pl-56'>
+      <div className='mt-5 lg:pl-96'>
       <div tabindex="0" className="max-w-lg justify-center collapse collapse-open border border-base-300 bg-base-100 rounded-box"> 
   <div className="collapse-title text-2xl font-medium text-primary">
     If Your need to any information from us here the...
