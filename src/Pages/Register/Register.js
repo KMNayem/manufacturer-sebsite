@@ -1,6 +1,6 @@
 import React from 'react';
 import auth from '../../firebase.init';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading/Loading';
 import { Link } from 'react-router-dom';
@@ -11,11 +11,11 @@ const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const [
-        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useSignInWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth);
 
 
       let signInError;
@@ -37,15 +37,39 @@ const Register = () => {
 
     const onSubmit = data => {
         console.log(data)
-        signInWithEmailAndPassword(data.email, data.password);
+        createUserWithEmailAndPassword(data.email, data.password);
     };
 
     return (
         <div className='flex h-screen justify-center items-center'>
         <div className="card w-96 bg-base-100 shadow-xl">
             <div className="card-body justify-center items-center">
-             <h2 className="font-bold text-center text-3xl text-primary">LogIn !</h2>
+             <h2 className="font-bold text-center text-3xl text-primary">Register !</h2>
              <form onSubmit={handleSubmit(onSubmit)}>
+
+            <div class="form-control w-full max-w-xs">
+                <label class="label">
+                    <span class="label-text">Name</span>
+                </label>
+                <input 
+                type="text" 
+                placeholder="Your name" 
+                class="input input-bordered w-full max-w-xs"
+                {...register("name", {
+                    required: {
+                        value: true,
+                        message: 'Name is required'
+                    },
+                    
+                  })}
+                />
+                <label class="label">
+                {errors.name?.type === 'required' && <span class="label-text-alt text-red-500">
+                    {errors.email.message}</span>}
+                
+                    
+                </label>
+            </div>
 
             <div class="form-control w-full max-w-xs">
                 <label class="label">
@@ -102,9 +126,9 @@ const Register = () => {
                 </label>
             </div>
             {signInError}
-                 <input className='btn btn-primary w-full max-w-xs' type="submit" value='Login' />
+                 <input className='btn btn-primary w-full max-w-xs' type="submit" value='Register' />
             </form>
-                  <p><small>New to ProPaint? <Link className='text-primary' to='/register'>Create a new account</Link></small></p>
+                  <p><small>Already have an account? <Link className='text-primary' to='/login'>Go to Login</Link></small></p>
              <div className="divider">OR</div>
              <button
                 onClick={() => signInWithGoogle()}
