@@ -1,9 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Product = ({product}) => {
+    
+    const navigate = useNavigate();
 
     const {  _id, quantity, balance, picture, name, about } = product || {};
+
+    const handleUseNavigate = (id) =>{
+        navigate(`/product/${id}`);
+    }
+    
+
 
     return (
         <div class="card w-80 bg-base-100 shadow-xl">
@@ -18,7 +26,9 @@ const Product = ({product}) => {
               {about?.length > 50 ? about.slice(0, 50) + "..." : about}
             </small>
                 <div class="card-actions">
-                    <button class="btn btn-primary">Buy Now</button>
+                    <button 
+                    onClick={() => handleUseNavigate(_id)} 
+                    class="btn btn-primary">Order Now</button>
                 </div>
             </div>
         </div>
