@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 
@@ -18,22 +19,45 @@ const OrderDetails = () => {
          .then(data => setProduct(data));
      }, []);
 
-
-
+     
      const handleOrderSubmit = (event) => {
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
         const number = event.target.phone.value;
-        const orderQuantity = event.target.orderQuantity.value;
-        const productName = name;
-        const totalPrice = parseInt(orderQuantity) * parseInt(balance);
+        let orderQuantity = event.target.orderQuantity.value;
+        const productName = event.target.productName.value;
+        let totalPrice = parseInt(orderQuantity) * parseInt(balance);
+        
+        
+        console.log(name, productName, email,  number, totalPrice);
+        const order = {
+            orderId: _id,
+            orderName: user.displayName,
+            orderQty: orderQuantity,
+            orderEmail: user.email,
+            orderNumber: number,
+            orderPname: productName,
+            orderPrice: totalPrice
+        }
+        fetch('http://localhost:5000/order', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+        .then(res => res.json())
+        .then(data => {
+            toast.success("Your order submited successfully !")
 
-        console.log(name, productName, email,  number, orderQuantity, totalPrice);
+            console.log(data);
+        });
 
-        // const order = { number, orderQuantity, totalPrice, picture, name, about }
+        
      }
 
+   
 
     return (
         <div className='mt-7'>
@@ -74,22 +98,22 @@ const OrderDetails = () => {
                          <label class="label">
                             <span class="label-text">Phone Number</span>
                          </label>
-                         <input type="number" name='phone' placeholder="Number here" class="input input-bordered w-full max-w-xs" />
+                         <input type="number" name='phone' required placeholder="Number here" class="input input-bordered w-full max-w-xs" />
                     </div>
                     <div class="form-control w-full max-w-xs">
                          <label class="label mt-2">
                              <span class="label-text">Quantity :</span>
-                             <input type="number" name="orderQuantity" min="50" max="500" placeholder="" class="input input-bordered w-24 max-w-xs" />
+                             <input type="number" required name="orderQuantity" min="50" max="500"  class="input input-bordered w-24 max-w-xs" />
                          </label>  
                           
                     </div>
-                    <div class="form-control w-full max-w-xs">
+                    {/* <div class="form-control w-full max-w-xs">
                          <label class="label mt-2">
-                             <span class="label-text font-bold">Total Price :</span>
-                             <input type="number" name="totalPrice" disabled placeholder="" class="input input-bordered w-24 max-w-xs" />
+                             <span class="label-text font-bold">Total Price : </span>
+                             <input type="number" name="totalPrice"  class="input input-bordered w-24 max-w-xs" />
                          </label>  
                           
-                    </div>
+                    </div> */}
                 
                     <div class="mt-4">
                         <input type='submit' value='CONFIRM ORDER' class="btn btn-primary"/>

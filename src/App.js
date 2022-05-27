@@ -9,6 +9,8 @@ import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import OrderDetails from './Pages/OrderDetails/OrderDetails';
 import RequireAuth from './Pages/Auth/RequireAuth/RequireAuth';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -31,6 +33,7 @@ function App() {
         ></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }
