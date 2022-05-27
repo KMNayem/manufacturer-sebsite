@@ -36,8 +36,8 @@ const MyOrder = () => {
                         <th>1</th>
                         <td>{order.orderPname}</td>
                         <td>{order.orderEmail}</td>
-                        <td>{order.orderQty}</td>
-                        <td >{order.orderPrice}</td>
+                        <td>{order.orderQty} pcs</td>
+                        <td >${order.orderPrice}</td>
                     </tr>
                             )
                     }
