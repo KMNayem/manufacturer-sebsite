@@ -5,7 +5,6 @@ import auth from '../../firebase.init';
 
 
 const OrderForm = () => {
-
     const minValue =( that, value )=>{
         const min = parseInt(that.getAttribute('min'))
         const val = parseInt(value);
@@ -16,6 +15,10 @@ const OrderForm = () => {
             return val;
         }
     }
+
+    //****************** ORDER WORK HERE ******************//
+
+
 
     const [user, loading, error] = useAuthState(auth);
 
@@ -35,18 +38,18 @@ const OrderForm = () => {
                 <input type="text"  disabled value={user?.email || ''} placeholder="Email here" class="input input-bordered w-full max-w-xs" />
             </div>
             <div class="form-control w-full max-w-xs">
+                    <label class="label">
+                        <span class="label-text">Phone Number</span>
+                    </label>
+                    <input type="number" placeholder="Number here" class="input input-bordered w-full max-w-xs" />
+                </div>
+            <div class="form-control w-full max-w-xs">
                 <label class="label mt-2">
                     <span class="label-text">Quantity :</span>
-                    <input type="number" onKeyUp={minValue} min="50" placeholder="Type here" class="input input-bordered w-24 max-w-xs" />
-                </label>
-                
+                    <input type="number" onKeyUp={minValue} min="50" placeholder="" class="input input-bordered w-24 max-w-xs" />
+                </label>  
             </div>
-                <div class="form-control w-full max-w-xs">
-                <label class="label">
-                    <span class="label-text">Phone Number</span>
-                </label>
-                <input type="number" placeholder="Number here" class="input input-bordered w-full max-w-xs" />
-                </div>
+                
                 <div class="mt-4">
                     <button class="btn btn-primary">Confirm Order</button>
                 </div>
