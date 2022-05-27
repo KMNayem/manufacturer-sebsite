@@ -14,10 +14,12 @@ const Navbar = () => {
 
     const navItems = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/item'>Item</Link></li>
-        <li><Link to='/order'>Orders</Link></li>        
-        <li><Link to='/about'>About</Link></li>
-        <li><Link to='contact'>Contact Us</Link></li>
+        {
+          user && <li><Link to='/dashboard'>DashBoard</Link></li>
+        }
+        <li><Link to='/order'>My Profile</Link></li>        
+        <li><Link to='/about'>Blogs</Link></li>
+        <li><Link to='/contact'>Contact Us</Link></li>
         <li>{user ? <button class="btn btn-ghost" onClick={logout}>Log Out</button> :
  <Link to='login'>Login</Link>}</li>
     </>
@@ -47,7 +49,12 @@ const Navbar = () => {
       
     </ul>
   </div>
-  
+  <div className="navbar-end">
+  <label tabindex="1" for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+      </label>
+    
+  </div>
 </div>
         </div>
     );
