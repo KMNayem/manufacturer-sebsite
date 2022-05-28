@@ -7,7 +7,7 @@ import Loading from '../Shared/Loading/Loading';
 const AddTools = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const { data: products, isLoading } = useQuery('products', () => fetch('http://localhost:5000/product').then(res=>res.json()))
+    const { data: products, isLoading } = useQuery('products', () => fetch('https://calm-beyond-17543.herokuapp.com/product').then(res=>res.json()))
 
 
     const onSubmit = async data => {

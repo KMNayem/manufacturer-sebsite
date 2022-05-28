@@ -12,7 +12,7 @@ const OrderDetails = () => {
      const {_id, quantity, balance, picture, name, about} = product;
     
      useEffect(() =>{
-         const url =`http://localhost:5000/product/${productId}`;
+         const url =`https://calm-beyond-17543.herokuapp.com/product/${productId}`;
          console.log(url);
          fetch(url)
          .then(res => res.json())
@@ -40,7 +40,7 @@ const OrderDetails = () => {
             orderPname: productName,
             orderPrice: totalPrice
         }
-        fetch('http://localhost:5000/order', {
+        fetch('https://calm-beyond-17543.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

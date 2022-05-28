@@ -12,7 +12,7 @@ const stripePromise = loadStripe('pk_test_51L4OkxDqPzPZ94HBdpQ0E4v7LjurWFV6XZP6j
 const Payment = () => {
     const {id} = useParams();
 
-    const url = `http://localhost:5000/order/${id}`;
+    const url = `https://calm-beyond-17543.herokuapp.com/order/${id}`;
 
     const {data: order, isLoading} = useQuery(['booking', id], () => fetch(url, {
         method: 'GET',
