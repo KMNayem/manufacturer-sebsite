@@ -17,6 +17,7 @@ import AllUsers from './Pages/Users/AllUsers';
 import RequireAdmin from './Pages/Auth/RequireAdmin/RequireAdmin';
 import AddTools from './Pages/AddTools/AddTools';
 import Payment from './Pages/Payment/Payment';
+import Profile from './Pages/Profile/Profile';
 
 
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
+        <Route path="/profile" element={<Profile/>} />
         
         <Route
           path="/product/:productId"

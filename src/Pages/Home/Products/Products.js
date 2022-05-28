@@ -13,8 +13,8 @@ const Products = () => {
     } , [])
 
     return (
-        <div className=' '>
-            <h1 className='text-center mt-10 text-5xl  font-bold text-primary'><u>OUR Tools</u></h1>
+        <div className=''>
+            <h1 className='text-center mt-5 text-5xl  font-bold text-primary'><u>OUR Tools</u></h1>
 
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20 px-12'>
                 {
