@@ -14,6 +14,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import DashBoard from './Pages/DashBoard/DashBoard';
 import MyOrder from './Pages/MyOrder/MyOrder';
 import AllUsers from './Pages/Users/AllUsers';
+import RequireAdmin from './Pages/Auth/RequireAdmin/RequireAdmin';
+import AddTools from './Pages/AddTools/AddTools';
 
 
 
@@ -40,7 +42,8 @@ function App() {
           </RequireAuth>
         }>
           <Route index element={<MyOrder></MyOrder>}></Route>
-          <Route path='users' element={<AllUsers></AllUsers>}></Route>
+          <Route path='users' element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>}></Route>
+          <Route path='addTools' element={<RequireAdmin><AddTools></AddTools></RequireAdmin>}></Route>
         </Route>
       </Routes>
       <Footer></Footer>

@@ -16,7 +16,7 @@ const DashBoard = () => {
                 
                 <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
                 <div class="drawer-content ">
-                <h1 className='text-center text-4xl font-bold text-primary mt-7'><u>Your Order Dashboard</u></h1>
+                <h1 className='text-center text-4xl font-bold text-primary mt-7'><u>Dashboard</u></h1>
                          <Outlet></Outlet>
             </div> 
             <div class="drawer-side">
@@ -24,9 +24,12 @@ const DashBoard = () => {
                     <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
       {/* <!-- Sidebar content here --> */}
                         <li className='font-bold'><Link to='/dashboard'>Order Dashboard</Link></li>
-                        {admin && <li className='font-bold'><Link to='/dashboard/users'>All Users</Link></li>}
+                        {admin && <>
+                       
+                        <li className='font-bold'><Link to='/dashboard/users'>All Users</Link></li>
+                        <li className='font-bold'><Link to='/dashboard/addTools'>Add Tools</Link></li> </>}
                         <li className='font-bold'><Link to='/about/review'>My Review</Link></li>
-                        <li className='font-bold'><Link to='/about/history'>My History</Link></li>
+                       
                                     
                     </ul>
   
