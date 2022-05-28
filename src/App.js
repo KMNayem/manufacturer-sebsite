@@ -16,6 +16,7 @@ import MyOrder from './Pages/MyOrder/MyOrder';
 import AllUsers from './Pages/Users/AllUsers';
 import RequireAdmin from './Pages/Auth/RequireAdmin/RequireAdmin';
 import AddTools from './Pages/AddTools/AddTools';
+import Payment from './Pages/Payment/Payment';
 
 
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
+        
         <Route
           path="/product/:productId"
           element={
@@ -41,6 +43,7 @@ function App() {
             <DashBoard/>
           </RequireAuth>
         }>
+          <Route path="payment/:id" element={<Payment/>} />
           <Route index element={<MyOrder></MyOrder>}></Route>
           <Route path='users' element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>}></Route>
           <Route path='addTools' element={<RequireAdmin><AddTools></AddTools></RequireAdmin>}></Route>
