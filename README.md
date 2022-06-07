@@ -1,6 +1,10 @@
 # https://pro-paint.firebaseapp.com/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ This project is basically a Paint roller base.
+
+ A full-fledged paint roller website.
+
+ Service are provided separately for all type of products.
 
 ## Available Scripts
 
